@@ -1,0 +1,10 @@
+.section { position: relative; padding-block: 112px; }
+.section--medical { overflow: hidden; background: #fff; }
+.section--medical::after { content: ""; position: absolute; right: -70px; bottom: 50px; width: 210px; height: 210px; border: 1px solid rgba(93,140,103,.12); border-radius: 50%; box-shadow: 0 0 0 38px rgba(93,140,103,.035), 0 0 0 76px rgba(93,140,103,.025); }
+.section--about { overflow: hidden; background: var(--color-sub); }
+.section--about::before { content: ""; position: absolute; top: -100px; right: -5%; width: 55%; height: 220px; border-radius: 50%; background: var(--color-background); }
+.section--records { background: #f7f5ee; }
+.section--director { overflow: hidden; background: #fff; }
+.section--director::before { content: "M"; position: absolute; right: 3%; top: 20px; color: rgba(93,140,103,.045); font-family: var(--font-en); font-size: min(24vw, 310px); line-height: 1; }
+.section--access { background: var(--color-sub); }
+@media (max-width: 767px) { .section { padding-block: 76px; } }

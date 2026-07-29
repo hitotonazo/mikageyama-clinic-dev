@@ -1,0 +1,8 @@
+.eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; color: var(--color-main); font-family: var(--font-en); font-size: 14px; font-weight: 400; letter-spacing: .18em; }
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--color-accent); }
+.section-heading { max-width: 680px; margin: 0 auto 52px; text-align: center; }
+.section-heading .eyebrow { justify-content: center; }
+.section-heading .eyebrow::after { content: ""; width: 28px; height: 1px; background: var(--color-accent); }
+.section-heading h2, .split-layout__content h2 { color: #384d3c; font-size: clamp(28px, 4vw, 42px); font-weight: 600; line-height: 1.4; }
+.section-heading > p:last-child { margin-top: 16px; color: #6c716d; font-size: 15px; }
+.lead { font-size: clamp(18px, 2.4vw, 23px); line-height: 2; }

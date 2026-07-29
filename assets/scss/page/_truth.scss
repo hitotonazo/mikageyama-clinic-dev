@@ -1,0 +1,247 @@
+.truth-page { background: #ecebe5; }
+.truth-locked { min-height: 100dvh; display: grid; place-items: center; padding: 70px 20px; background: var(--color-sub); }
+.truth-locked__card { width: min(680px, 100%); padding: clamp(36px, 7vw, 72px); border: 1px solid #d8e3d9; border-radius: var(--radius-large); background: #fff; box-shadow: var(--shadow-card); text-align: center; }
+.truth-locked__card .eyebrow { justify-content: center; color: #7b817c; }
+.truth-locked__card h1 { color: #344b39; font-size: clamp(27px, 5vw, 42px); line-height: 1.5; }
+.truth-locked__card h1 + p { margin: 20px auto 30px; color: #6e746f; }
+.truth-content { display: none; }
+.is-phase3 .truth-locked { display: none; }
+.is-phase3 .truth-content { display: block; }
+.has-phase3 .truth-locked { display: none; }
+.has-phase3 .truth-content { display: block; }
+.truth-hero { position: relative; overflow: hidden; padding-block: clamp(92px, 13vw, 160px); color: #e6eae5; background: #263029; }
+.truth-hero::before { content: "MK-041"; position: absolute; right: -25px; bottom: -70px; color: rgba(255,255,255,.025); font-family: var(--font-en); font-size: clamp(120px, 22vw, 300px); line-height: 1; }
+.truth-hero::after { content: ""; position: absolute; inset: 0; opacity: .12; background: repeating-linear-gradient(0deg, transparent 0 5px, rgba(255,255,255,.08) 6px); pointer-events: none; }
+.truth-container { position: relative; z-index: 1; width: min(1100px, calc(100% - 40px)); margin-inline: auto; }
+.truth-hero__label { color: #b55b52; font-family: var(--font-en); letter-spacing: .22em; }
+.truth-hero__number { margin-top: 22px; color: #93a096; font-size: 12px; letter-spacing: .15em; }
+.truth-hero__title { position: relative; width: fit-content; margin-block: 14px 28px; font-size: clamp(37px, 7vw, 67px); font-weight: 500; line-height: 1.35; animation: truth-heading-noise 6.5s steps(1) infinite; }
+.truth-hero__title::before,
+.truth-hero__title::after { content: attr(data-text); position: absolute; inset: 0; overflow: hidden; opacity: 0; pointer-events: none; }
+.truth-hero__title::before { color: rgba(88,126,101,.42); clip-path: inset(18% 0 67%); }
+.truth-hero__title::after { color: rgba(170,47,42,.55); clip-path: inset(48% 0 39%); animation: truth-heading-slice 6.5s steps(1) infinite; }
+.truth-hero__description { max-width: 640px; color: #b9c1ba; }
+.truth-hero__permission { width: fit-content; margin-top: 28px; padding: 8px 12px; color: #8f9b91; border: 1px solid #465149; font-size: 10px; letter-spacing: .1em; }
+.truth-hero__scan { position: absolute; z-index: 3; right: 0; left: 0; top: 0; height: 1px; opacity: 0; background: rgba(165,55,50,.72); box-shadow: 0 0 12px rgba(165,55,50,.48); pointer-events: none; }
+.truth-hero.is-restoring .truth-hero__label { animation: truth-load-label .32s .18s steps(2) both; }
+.truth-hero.is-restoring .truth-hero__number { animation: truth-load-item .32s .43s ease both; }
+.truth-hero.is-restoring .truth-hero__title { animation: truth-load-title .58s .7s steps(2) both; }
+.truth-hero.is-restoring .truth-hero__title::before { animation: truth-load-slice-left .58s .7s steps(2) both; }
+.truth-hero.is-restoring .truth-hero__title::after { animation: truth-load-slice-right .58s .7s steps(2) both; }
+.truth-hero.is-restoring .truth-hero__description { animation: truth-load-item .4s 1.25s ease both; }
+.truth-hero.is-restoring .truth-hero__permission { animation: truth-load-item .4s 1.48s ease both; }
+.truth-hero.is-restoring .truth-hero__scan { animation: truth-load-scan .55s 1.68s ease-in-out both; }
+.truth-document { color: #434743; background: #ecebe5; }
+.truth-section { width: min(1100px, calc(100% - 40px)); margin-inline: auto; padding-block: clamp(76px, 10vw, 120px); }
+.truth-section + .truth-section { border-top: 1px solid #ced2cc; }
+.truth-index { margin-bottom: 13px; color: #8d5a50; font-family: var(--font-en); font-size: 11px; letter-spacing: .18em; }
+.truth-section h2 { margin-bottom: 30px; color: #29342c; font-size: clamp(27px, 4vw, 40px); font-weight: 500; line-height: 1.5; animation: truth-copy-noise 8s steps(1) infinite; }
+.truth-prose { width: 100%; max-width: none; }
+.truth-prose p + p, .truth-feature p + p { margin-top: 20px; }
+.truth-section--intro { padding-top: clamp(90px, 12vw, 145px); }
+.truth-section--intro h2 { font-size: clamp(32px, 5vw, 48px); }
+.truth-feature { display: grid; grid-template-columns: 1.06fr .94fr; align-items: center; gap: clamp(42px, 7vw, 80px); }
+.truth-feature__image { overflow: hidden; border-radius: 7px; box-shadow: 0 22px 55px rgba(24,31,26,.18); }
+.truth-feature__image img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(.7) brightness(.83); }
+.truth-emphasis { padding: 13px 16px; color: #e2e4df; border-left: 3px solid #8d5a50; background: #343a35; font-size: 13px; }
+.truth-section--lined { position: relative; }
+.truth-section--lined::after { content: "INTERNAL USE ONLY"; position: absolute; right: 0; top: 80px; color: rgba(51,61,53,.1); font-family: var(--font-en); font-size: 13px; letter-spacing: .2em; }
+.truth-diary__heading { display: grid; grid-template-columns: 1fr 290px; align-items: end; gap: 48px; }
+.truth-diary__heading img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; filter: sepia(.18) saturate(.7); }
+.truth-diary blockquote { position: relative; margin: 48px 0 0; padding: clamp(30px, 5vw, 56px); border: 1px solid #d1c7b6; background-color: #f5f0e4; background-image: linear-gradient(rgba(94,78,57,.07) 1px, transparent 1px); background-size: 100% 32px; box-shadow: 4px 6px 20px rgba(63,53,41,.1); font-size: clamp(15px, 2vw, 18px); line-height: 2.05; }
+.truth-diary blockquote::before { content: "記録抄録"; position: absolute; top: 17px; right: 20px; color: #97645d; border: 1px solid #b88a82; padding: 3px 9px; font-size: 10px; letter-spacing: .15em; transform: rotate(-3deg); }
+.truth-diary blockquote p + p { margin-top: 22px; }
+.truth-evidence-image { overflow: hidden; margin: 0 0 38px; border: 1px solid #3e2726; background: #090909; box-shadow: 0 24px 65px rgba(0,0,0,.42); }
+.truth-evidence-image img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; filter: saturate(.68) brightness(.72) contrast(1.08); }
+.truth-evidence-image figcaption { padding: 10px 14px; color: #8c807c; border-top: 1px solid #342827; font-size: 10px; letter-spacing: .08em; }
+.record-card { width: 100%; max-width: none; margin-block: 38px; padding: clamp(24px, 4vw, 38px); border: 1px solid #343c36; background: #121613; }
+.record-card__label { margin-bottom: 20px; color: #9baaa0; font-size: 11px; letter-spacing: .14em; }
+.record-list { width: 100%; max-width: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 34px 0 0; padding: 1px; background: #303732; list-style: none; }
+.record-list li { min-height: 54px; display: flex; align-items: center; padding: 13px 17px; background: #151a16; }
+.record-list li::before { content: "—"; margin-right: 10px; color: #8e4e48; }
+.record-list--symptoms { margin: 0; }
+.facility-record { width: 100%; max-width: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 38px 0; padding: 0; list-style: none; }
+.facility-record li { min-height: 72px; display: grid; place-items: center; padding: 9px; border: 1px solid #344039; background: #151a17; font-size: 11px; text-align: center; }
+.restriction-list { width: 100%; max-width: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px; margin: 30px 0; padding: 0; list-style: none; }
+.restriction-list li { position: relative; padding-left: 20px; }
+.restriction-list li::before { content: ""; position: absolute; top: .85em; left: 0; width: 7px; height: 1px; background: #a55750; }
+.record-flow { width: 100%; max-width: none; margin: 44px 0; padding: 0; counter-reset: record-step; list-style: none; }
+.record-flow li { position: relative; min-height: 64px; display: flex; align-items: center; padding: 13px 20px 13px 68px; border: 1px solid #38413a; background: #151a17; counter-increment: record-step; }
+.record-flow li::before { content: counter(record-step, decimal-leading-zero); position: absolute; left: 20px; color: #7e8981; font-family: var(--font-en); }
+.record-flow li:not(:last-child)::after { content: "↓"; position: absolute; z-index: 2; left: 31px; bottom: -20px; color: #69736c; }
+.record-flow li + li { margin-top: 13px; }
+.record-flow li.is-alert { color: #d19a95; border-color: rgba(155,77,72,.58); background: #201514; }
+.testimony-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.testimony-compare section { padding: clamp(24px, 4vw, 38px); border: 1px solid #343d36; background: #141916; }
+.testimony-compare h3 { margin-bottom: 22px; color: #d8ddd9; font-size: 18px; font-weight: 500; }
+.testimony-compare ul { margin: 0; padding-left: 1.4em; }
+.testimony-compare li + li { margin-top: 9px; }
+.testimony-compare section:last-child { border-color: #51413d; background: #1d1715; }
+.testimony-compare section:last-child > p:first-of-type { color: #d5c8c1; font-size: clamp(17px, 2vw, 21px); line-height: 2; }
+.testimony-compare__note { margin-top: 28px; color: #9d8e88; font-size: 12px; }
+.diary-timeline { position: relative; margin-top: 48px; padding-left: 32px; }
+.diary-timeline::before { content: ""; position: absolute; top: 10px; bottom: 10px; left: 7px; width: 1px; background: #514b40; }
+.truth-diary .diary-timeline blockquote { position: relative; margin: 0; padding: 20px 24px; background-size: 100% 29px; font-size: 14px; }
+.truth-diary .diary-timeline blockquote::before { content: ""; display: block; position: absolute; top: 25px; left: -30px; width: 11px; height: 11px; padding: 0; border: 2px solid #a58e71; border-radius: 50%; background: #181712; transform: none; }
+.diary-timeline blockquote + blockquote { margin-top: 14px; }
+.diary-timeline time { display: block; margin-bottom: 7px; color: #a88969; font-family: var(--font-en); font-size: 12px; letter-spacing: .1em; }
+.truth-diary .diary-statement { margin-top: 28px; border-color: #564b3d; font-size: clamp(15px, 2vw, 18px); }
+.contradiction-list { width: 100%; max-width: none; margin: 40px 0 0; border-top: 1px solid #384039; }
+.contradiction-list div { display: grid; grid-template-columns: 120px 1fr 120px 1fr; border-bottom: 1px solid #384039; }
+.contradiction-list dt, .contradiction-list dd { min-height: 64px; display: flex; align-items: center; padding: 13px 15px; }
+.contradiction-list dt { color: #aeb7b0; background: #171c18; font-size: 11px; }
+.contradiction-list dd { margin: 0; color: #d1d6d2; }
+.truth-section--records { position: relative; }
+.truth-section--records::before { content: ""; position: absolute; right: 4%; bottom: 65px; width: 160px; height: 34px; background: #353936; opacity: .12; transform: rotate(-2deg); }
+.truth-photo-section { text-align: center; }
+.truth-photo-section__date { margin: -18px 0 26px; color: #747a75; font-family: var(--font-en); letter-spacing: .1em; }
+.truth-photo { position: relative; width: 100%; overflow: hidden; display: block; padding: 0; color: #fff; border: 0; border-radius: 7px; background: #222; cursor: pointer; box-shadow: 0 22px 55px rgba(24,31,26,.2); }
+.truth-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; filter: grayscale(.3) brightness(.7); transition: filter .55s ease, opacity .25s ease; }
+.truth-photo__mask { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 0 42%, rgba(8,9,8,.9) 42% 58%, transparent 58%), linear-gradient(0deg, transparent 0 61%, rgba(8,9,8,.55) 61% 69%, transparent 69%); transition: opacity .5s ease; }
+.truth-photo__noise { position: absolute; inset: 0; opacity: 0; background: repeating-radial-gradient(circle at 30% 40%, transparent 0 1px, rgba(255,255,255,.4) 2px, transparent 3px 5px); background-size: 9px 11px; pointer-events: none; }
+.truth-photo__hint { position: absolute; right: 16px; bottom: 16px; padding: 8px 12px; color: #e9ece8; border: 1px solid rgba(255,255,255,.45); border-radius: 4px; background: rgba(23,28,24,.72); font-size: 11px; }
+.truth-photo.is-restoring img { opacity: .45; }
+.truth-photo.is-restoring .truth-photo__noise { animation: truth-photo-noise .42s steps(2) both; }
+.truth-photo.is-restored { cursor: default; }
+.truth-photo.is-restored img { filter: grayscale(0) brightness(.92); }
+.truth-photo.is-restored .truth-photo__mask,
+.truth-photo.is-restored .truth-photo__hint { opacity: 0; }
+.truth-photo-section > p:not(.truth-index):not(.truth-photo-section__date):not(.truth-photo-section__restored) { max-width: 690px; margin: 28px auto 0; }
+.truth-photo-section__restored { display: none; margin-top: 18px; color: #7d5149; font-size: 13px; }
+.truth-photo.is-restored ~ .truth-photo-section__restored { display: block; animation: truth-copy-reveal .4s ease both; }
+.truth-section--judgement { padding-bottom: clamp(100px, 14vw, 170px); }
+.truth-ending { padding: clamp(95px, 15vw, 180px) 20px; color: #e5e9e5; background: #2d3730; text-align: center; }
+.truth-ending__message { width: 100%; max-width: none; margin-inline: auto; font-size: clamp(19px, 3vw, 30px); line-height: 2; }
+.truth-ending__message p + p { margin-top: 20px; }
+.truth-share { margin-top: 46px; border-color: #58675d; background: #46544a; box-shadow: none; }
+.truth-ending__top { width: fit-content; margin: 18px auto 0; color: #c7d0c9; border-color: #68736b; background: transparent; box-shadow: none; }
+.truth-ending__top:hover { color: #fff; border-color: #839087; background: #38423b; }
+@keyframes truth-photo-noise { 0%, 100% { opacity: 0; } 15%, 80% { opacity: .34; transform: translateX(2px); } 50% { opacity: .5; transform: translateX(-2px); } }
+@keyframes truth-copy-reveal { from { opacity: 0; filter: blur(2px); } }
+@keyframes truth-heading-noise {
+  0%, 89%, 93%, 100% { text-shadow: none; filter: none; }
+  90% { text-shadow: -2px 0 rgba(155,38,34,.65), 2px 0 rgba(80,113,89,.48); filter: blur(.2px); }
+  91% { text-shadow: 2px 0 rgba(155,38,34,.45); }
+  92% { text-shadow: -1px 0 rgba(155,38,34,.3); filter: none; }
+}
+@keyframes truth-heading-slice {
+  0%, 89%, 93%, 100% { opacity: 0; transform: translateX(0); }
+  90% { opacity: .65; transform: translateX(3px); }
+  91% { opacity: .4; transform: translateX(-2px); }
+  92% { opacity: .2; transform: translateX(1px); }
+}
+@keyframes truth-copy-noise {
+  0%, 94%, 97%, 100% { text-shadow: none; filter: none; }
+  95% { text-shadow: -1px 0 rgba(151,52,47,.55), 1px 0 rgba(96,123,103,.35); filter: blur(.15px); }
+  96% { text-shadow: 1px 0 rgba(151,52,47,.3); filter: none; }
+}
+@keyframes truth-load-label {
+  0% { opacity: 0; filter: blur(1px); text-shadow: none; }
+  35% { opacity: .35; text-shadow: 2px 0 rgba(165,52,47,.62); }
+  60% { opacity: 0; }
+  100% { opacity: 1; filter: blur(0); text-shadow: none; }
+}
+@keyframes truth-load-item {
+  from { opacity: 0; filter: blur(2px); }
+  to { opacity: 1; filter: blur(0); }
+}
+@keyframes truth-load-title {
+  0% { opacity: 0; filter: blur(2px); text-shadow: none; }
+  25% { opacity: .4; letter-spacing: .07em; text-shadow: -2px 0 rgba(166,47,42,.6); }
+  48% { opacity: .72; letter-spacing: .035em; text-shadow: 2px 0 rgba(83,121,96,.45); }
+  70% { opacity: .9; text-shadow: -1px 0 rgba(166,47,42,.35); }
+  100% { opacity: 1; filter: blur(0); letter-spacing: inherit; text-shadow: none; }
+}
+@keyframes truth-load-slice-left {
+  0%, 100% { opacity: 0; transform: translateX(0); }
+  25% { opacity: .65; transform: translateX(-2px); }
+  55% { opacity: .3; transform: translateX(1px); }
+}
+@keyframes truth-load-slice-right {
+  0%, 100% { opacity: 0; transform: translateX(0); }
+  20% { opacity: .72; transform: translateX(2px); }
+  58% { opacity: .35; transform: translateX(-1px); }
+}
+@keyframes truth-load-scan {
+  0% { top: 4%; opacity: 0; }
+  12% { opacity: .72; }
+  84% { opacity: .3; }
+  100% { top: 96%; opacity: 0; }
+}
+
+/* 解放後は通常サイトの面影を残した暗い機密記録表示へ切り替える */
+.is-phase3.truth-page { color: #c8ceca; background: #090b0a; }
+.is-phase3 .truth-document { color: #b8bfba; background: #0b0e0c; }
+.is-phase3 .truth-section + .truth-section { border-top-color: #29302b; }
+.is-phase3 .truth-section h2 { color: #e0e5e1; }
+.is-phase3 .truth-index { color: #9b4d48; }
+.is-phase3 .truth-feature {
+  display: block;
+}
+.is-phase3 .truth-feature__image {
+  margin-bottom: 42px;
+  border: 1px solid #303832;
+  border-radius: 3px;
+  box-shadow: 0 28px 80px rgba(0,0,0,.58);
+}
+.is-phase3 .truth-feature__image img {
+  aspect-ratio: 16 / 9;
+  filter: saturate(.55) brightness(.67) contrast(1.08);
+}
+.is-phase3 .truth-emphasis { color: #d7dbd7; background: #171b18; }
+.is-phase3 .truth-diary__heading {
+  display: block;
+}
+.is-phase3 .truth-diary__heading img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 42px;
+  border: 1px solid #30352f;
+  object-fit: cover;
+  filter: sepia(.15) saturate(.45) brightness(.64) contrast(1.08);
+  box-shadow: 0 28px 80px rgba(0,0,0,.55);
+}
+.is-phase3 .truth-diary blockquote {
+  color: #c9c5b9;
+  border-color: #4a4338;
+  background-color: #181712;
+  background-image: linear-gradient(rgba(187,168,135,.06) 1px, transparent 1px);
+  box-shadow: 4px 8px 30px rgba(0,0,0,.32);
+}
+.is-phase3 .truth-section--lined::after { color: rgba(203,211,205,.06); }
+.is-phase3 .truth-section--records::before { background: #d4d7d4; opacity: .06; }
+.is-phase3 .truth-photo { border: 1px solid #343936; box-shadow: 0 28px 80px rgba(0,0,0,.6); }
+.is-phase3 .truth-section--judgement { color: #b3bab5; }
+.is-phase3 .truth-ending { background: #050706; border-top: 1px solid #252b27; }
+.truth-page .truth-locked { color: #bbc2bd; background: #0b0e0c; }
+.truth-page .truth-locked__card { border-color: #303832; background: #151a16; box-shadow: 0 28px 80px rgba(0,0,0,.38); }
+.truth-page .truth-locked__card h1 { color: #dce2dd; }
+.truth-page .truth-locked__card h1 + p { color: #9da69f; }
+
+@media (prefers-reduced-motion: reduce) {
+  .truth-photo img, .truth-photo__mask { transition: none; }
+  .truth-photo.is-restoring .truth-photo__noise { animation: none; }
+  .truth-hero__label,
+  .truth-hero__number,
+  .truth-hero__title,
+  .truth-hero__title::before,
+  .truth-hero__title::after,
+  .truth-hero__description,
+  .truth-hero__permission,
+  .truth-hero__scan,
+  .truth-section h2 { animation: none; }
+  .truth-hero__title::before, .truth-hero__title::after, .truth-hero__scan { display: none; }
+}
+@media (max-width: 767px) {
+  .truth-locked { min-height: 100dvh; }
+  .truth-feature, .truth-diary__heading { grid-template-columns: 1fr; }
+  .truth-feature { gap: 30px; }
+  .truth-diary__heading { gap: 26px; }
+  .truth-section--lined::after, .truth-section--records::before { display: none; }
+  .truth-photo__mask { background: linear-gradient(90deg, transparent 0 39%, rgba(8,9,8,.9) 39% 61%, transparent 61%), linear-gradient(0deg, transparent 0 59%, rgba(8,9,8,.58) 59% 70%, transparent 70%); }
+  .record-list, .restriction-list, .testimony-compare { grid-template-columns: 1fr; }
+  .facility-record { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contradiction-list div { grid-template-columns: 100px 1fr; }
+  .diary-timeline { padding-left: 25px; }
+  .truth-diary .diary-timeline blockquote::before { left: -24px; }
+}

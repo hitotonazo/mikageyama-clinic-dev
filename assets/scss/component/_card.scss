@@ -1,0 +1,19 @@
+.medical-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.medical-card { overflow: hidden; border-radius: var(--radius); background: var(--color-background); box-shadow: var(--shadow-card); transition: transform .25s; }
+.medical-card:hover { transform: translateY(-5px); }
+.medical-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.medical-card div { position: relative; padding: 22px; }
+.medical-card div::before { content: ""; position: absolute; top: 0; left: 22px; width: 42px; height: 2px; background: var(--color-accent); }
+.medical-card span { color: var(--color-accent); font-family: var(--font-en); }
+.medical-card h3 { margin: 3px 0 9px; color: #384d3c; font-size: 20px; }
+.medical-card p { color: #6c716d; font-size: 13px; line-height: 1.75; }
+.records-card { position: relative; padding: clamp(26px, 5vw, 56px); border-radius: var(--radius-large); background: #fff; box-shadow: var(--shadow-card); }
+.records-card::before { content: "ANNUAL REPORT"; position: absolute; top: 22px; right: 28px; color: rgba(93,140,103,.35); font-family: var(--font-en); font-size: 11px; letter-spacing: .18em; }
+.records-card__summary { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 35px; padding-bottom: 30px; border-bottom: 1px solid #e4e9e4; }
+.records-card__summary p span { display: block; color: #707570; font-size: 13px; }
+.records-card__summary strong { color: var(--color-main-dark); font-family: var(--font-en); font-size: 58px; line-height: 1; }
+.records-card__summary small { margin-left: 5px; font-family: var(--font-jp); font-size: 14px; }
+.mini-chart { width: 180px; height: 72px; display: flex; align-items: end; gap: 12px; padding-inline: 20px; border-bottom: 1px solid #ccd8ce; }
+.mini-chart i { flex: 1; height: var(--height); border-radius: 5px 5px 0 0; background: #a9c5ae; }
+@media (max-width: 900px) { .medical-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .medical-grid { grid-template-columns: 1fr; } .records-card__summary { align-items: center; } .mini-chart { width: 125px; } }

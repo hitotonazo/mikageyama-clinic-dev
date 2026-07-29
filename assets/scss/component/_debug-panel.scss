@@ -1,0 +1,28 @@
+.debug-panel {
+  position: fixed;
+  z-index: 900;
+  right: 14px;
+  bottom: 14px;
+  width: 214px;
+  overflow: hidden;
+  color: #f3f3f3;
+  border: 1px solid #59605a;
+  border-radius: 7px;
+  background: #1f2420;
+  box-shadow: 0 10px 35px rgba(0,0,0,.28);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.debug-panel[hidden] { display: none; }
+.debug-panel button { min-height: 34px; color: inherit; border: 1px solid #59605a; border-radius: 3px; background: #303631; cursor: pointer; }
+.debug-panel button:hover { background: #444c45; }
+.debug-panel__heading { display: flex; align-items: center; justify-content: space-between; padding: 10px; color: #d9b665; font-weight: 700; letter-spacing: .12em; }
+.debug-panel__heading span { color: #a9c9af; letter-spacing: 0; }
+.debug-panel__body { display: grid; gap: 7px; padding: 10px; border-top: 1px solid #59605a; }
+.debug-panel__body p { margin: 0; }
+.debug-panel__phases { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+@media (max-width: 767px) {
+  .debug-panel { right: 10px; bottom: 10px; }
+  .debug-panel { max-height: min(350px, 60dvh); overflow-y: auto; }
+}

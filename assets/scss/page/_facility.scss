@@ -1,0 +1,85 @@
+.facility-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(82px, 10vw, 132px);
+  background: var(--color-sub);
+  text-align: center;
+}
+.facility-hero::before,
+.facility-hero::after { content: ""; position: absolute; border-radius: 50%; border: 1px solid rgba(93,140,103,.13); }
+.facility-hero::before { width: 390px; height: 390px; top: -240px; left: -100px; box-shadow: 0 0 0 52px rgba(93,140,103,.035); }
+.facility-hero::after { width: 260px; height: 260px; right: -80px; bottom: -180px; box-shadow: 0 0 0 38px rgba(93,140,103,.04); }
+.facility-hero .container { position: relative; z-index: 1; }
+.facility-hero .eyebrow { justify-content: center; }
+.facility-hero .eyebrow::after { content: ""; width: 28px; height: 1px; background: var(--color-accent); }
+.facility-hero h1 { color: #344b39; font-size: clamp(38px, 6vw, 58px); font-weight: 600; letter-spacing: .08em; }
+.facility-hero h1 + p { margin-top: 22px; color: #677069; }
+.facility-introduction { background: #fff; }
+.facility-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.facility-card { overflow: hidden; border: 1px solid #e6ebe6; border-radius: var(--radius); background: var(--color-background); box-shadow: var(--shadow-card); }
+.facility-card figure { overflow: hidden; }
+.facility-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .5s ease; }
+.facility-card:hover img { transform: scale(1.025); }
+.facility-card > div { position: relative; padding: 26px 25px 30px; }
+.facility-card__number { position: absolute; right: 20px; top: -25px; display: grid; width: 50px; height: 50px; place-items: center; color: #fff; border-radius: 50%; background: var(--color-main); font-family: var(--font-en); }
+.facility-card h3 { margin-bottom: 12px; color: #344b39; font-size: 21px; }
+.facility-card h3 + p { color: #686f69; font-size: 13px; line-height: 1.9; }
+.facility-map-section { background: #f7f5ee; }
+.facility-diagrams { display: grid; grid-template-columns: 1.05fr .95fr; align-items: start; gap: 28px; }
+.floor-guide,
+.evacuation-guide { padding: clamp(22px, 3vw, 35px); border: 1px solid #e2e8e2; border-radius: var(--radius-large); background: #fff; box-shadow: var(--shadow-card); }
+.floor-row { display: grid; grid-template-columns: 82px 1fr; min-height: 126px; border: 1px solid #dbe7dc; border-bottom: 0; background: #fbfcfa; }
+.floor-row:first-child { border-radius: 8px 8px 0 0; }
+.floor-row:nth-child(2) { border-bottom: 1px solid #dbe7dc; border-radius: 0 0 8px 8px; }
+.floor-row__level { display: flex; align-items: baseline; justify-content: center; color: #fff; background: var(--color-main); }
+.floor-row__level strong { font-family: var(--font-en); font-size: 38px; font-weight: 400; }
+.floor-row__level span { font-family: var(--font-en); font-size: 15px; }
+.floor-row__rooms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; align-content: center; padding: 18px; }
+.floor-row__rooms span { min-height: 39px; display: grid; place-items: center; padding: 6px; border: 1px solid #dfe8e0; border-radius: 5px; background: var(--color-sub); font-size: 12px; text-align: center; }
+.underground-floors { display: none; margin-top: 20px; }
+.is-phase2 .underground-floors,
+.is-phase3 .underground-floors { display: block; animation: facility-reveal .6s ease both; }
+.floor-row--underground { min-height: 88px; border-color: #bac5bb; background: #ecefeb; }
+.floor-row--underground + .floor-row--underground { border-top: 0; }
+.floor-row--underground:last-of-type { border-bottom: 1px solid #bac5bb; border-radius: 0 0 8px 8px; }
+.floor-row--underground .floor-row__level { background: #59625b; }
+.floor-row--restricted { color: #363936; }
+.floor-row--restricted .redacted { color: #d5d8d5; background: #303330; border-color: #303330; letter-spacing: .15em; }
+.evacuation-guide__heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: 20px; }
+.evacuation-guide__heading h3 { color: #344b39; font-size: 22px; }
+.evacuation-guide__heading p { color: #879087; font-family: var(--font-en); font-size: 10px; letter-spacing: .12em; }
+.evacuation-map { position: relative; min-height: 390px; overflow: hidden; border: 8px solid #d4dfd5; background-color: #f9fbf8; background-image: linear-gradient(#edf2ed 1px, transparent 1px), linear-gradient(90deg, #edf2ed 1px, transparent 1px); background-size: 24px 24px; }
+.evacuation-room { position: absolute; display: grid; place-items: center; color: #506355; border: 2px solid #a9beaC; background: rgba(237,245,238,.9); font-size: 12px; }
+.evacuation-room--waiting { inset: 7% 51% 53% 5%; }
+.evacuation-room--exam { inset: 7% 5% 53% 53%; }
+.evacuation-room--treatment { inset: 51% 5% 8% 62%; }
+.evacuation-room--reception { inset: 62% 53% 8% 5%; }
+.evacuation-route { position: absolute; z-index: 2; left: 36%; bottom: 30%; width: 43%; height: 6px; border-radius: 6px; background: #79a884; transform: rotate(-15deg); }
+.evacuation-route::after { content: ""; position: absolute; right: -6px; top: -5px; width: 13px; height: 13px; border-top: 4px solid #79a884; border-right: 4px solid #79a884; transform: rotate(45deg); }
+.evacuation-route i { display: none; }
+.evacuation-exit { position: absolute; z-index: 3; right: 4px; bottom: 10px; padding: 4px 8px; color: #fff; background: #5d986b; font-size: 10px; }
+.stair-drawing { position: absolute; z-index: 3; left: 42%; bottom: 4%; width: 64px; height: 57px; display: flex; flex-direction: column; justify-content: end; padding: 4px; border: 1px solid #cbd2cb; background: #f3f4f1; }
+.stair-drawing i { display: block; height: 7px; border-top: 1px solid #8f978f; }
+.stair-drawing b { position: absolute; right: 5px; top: 0; color: #8a918b; font-size: 17px; }
+.underground-trigger { position: absolute; z-index: 5; left: calc(42% - 7px); bottom: calc(4% - 7px); width: 78px; height: 71px; border: 0; border-radius: 5px; background: transparent; }
+.underground-trigger:disabled { cursor: default; }
+.is-phase0 .underground-trigger { pointer-events: none; }
+.is-phase1 .underground-trigger { cursor: pointer; box-shadow: 0 0 0 1px rgba(181,72,72,.08); animation: stair-disturbance 2.2s steps(2) infinite; }
+.is-phase1 .underground-trigger:hover { background: rgba(70,78,71,.07); box-shadow: 0 0 0 1px rgba(95,107,97,.28), 2px 0 rgba(181,72,72,.16); }
+.is-phase2 .underground-trigger,
+.is-phase3 .underground-trigger { pointer-events: none; }
+.evacuation-guide__note { margin-top: 16px; color: #757d76; font-size: 11px; }
+.facility-return { padding-block: 12px 54px; background: #f7f5ee; text-align: center; }
+.facility-return .text-link { margin-top: 0; }
+@keyframes facility-reveal { from { opacity: 0; filter: blur(3px); } }
+@keyframes stair-disturbance { 0%, 88%, 100% { transform: translateX(0); } 90% { transform: translateX(1px); } 92% { transform: translateX(-1px); } }
+@media (max-width: 767px) {
+  .pc-only { display: none; }
+  .facility-gallery,
+  .facility-diagrams { grid-template-columns: 1fr; }
+  .facility-gallery { gap: 22px; }
+  .floor-row { grid-template-columns: 64px 1fr; }
+  .floor-row__rooms { padding: 12px; }
+  .evacuation-map { min-height: 350px; }
+  .underground-trigger { min-width: 78px; min-height: 71px; }
+}

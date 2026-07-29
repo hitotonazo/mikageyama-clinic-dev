@@ -1,0 +1,10 @@
+.button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; padding: 12px 22px 12px 25px; color: #fff; border: 1px solid var(--color-main); border-radius: 8px; background: var(--color-main); box-shadow: 0 8px 22px rgba(93,140,103,.18); font-size: 14px; font-weight: 600; transition: transform .2s, color .2s, background .2s; }
+.button::after { content: "→"; display: inline-grid; width: 22px; height: 22px; place-items: center; border-radius: 50%; background: rgba(255,255,255,.18); font-family: sans-serif; font-size: 13px; transition: transform .2s; }
+.button:hover::after { transform: translateX(3px); }
+.button:hover { background: var(--color-main-dark); transform: translateY(-2px); }
+.button--outline { color: var(--color-main-dark); background: rgba(255,255,255,.85); }
+.button--outline::after { color: currentColor; border: 1px solid currentColor; background: transparent; }
+.button--outline:hover { color: #fff; }
+.hero .button--outline:hover::after { color: currentColor; border-color: currentColor; background: transparent; }
+.button--small { min-height: 42px; padding: 8px 18px; font-size: 12px; }
+.text-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; color: var(--color-main-dark); border-bottom: 1px solid rgba(63,104,72,.4); font-weight: 600; }
