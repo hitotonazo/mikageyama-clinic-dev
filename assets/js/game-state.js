@@ -36,8 +36,13 @@
     const directorImage = document.querySelector('[data-director-image]');
     const step3 = document.querySelector('[data-step3-trigger]');
     const step2 = document.querySelector('[data-step2-trigger]');
+    const evacuationImage = document.querySelector('[data-evacuation-image]');
 
-    if (discharge) discharge.textContent = level >= 1 ? '退院記録なし' : 'ーー';
+    if (discharge) {
+      discharge.textContent = level >= 1 ? '退院記録なし' : '██████';
+      discharge.classList.toggle('records-redaction', level < 1);
+      discharge.setAttribute('aria-label', level >= 1 ? '退院記録なし' : '意図的に伏せられた記録');
+    }
     if (step1) {
       step1.disabled = level >= 1;
       step1.setAttribute('aria-label', level >= 1 ? '退院記録なし' : '退院者数の記録を確認する');
@@ -53,6 +58,13 @@
     if (step2) {
       step2.disabled = currentPhase !== 'phase1';
       step2.setAttribute('aria-hidden', currentPhase === 'phase0' ? 'true' : 'false');
+    }
+    if (evacuationImage) {
+      const altered = level >= 1;
+      evacuationImage.src = altered ? evacuationImage.dataset.alteredSrc : evacuationImage.dataset.normalSrc;
+      evacuationImage.alt = altered
+        ? '院長室裏に地下へ続く階段が現れた避難経路図'
+        : '御影山診療所の通常避難経路図';
     }
     document.querySelectorAll('[data-current-phase]').forEach((element) => {
       element.textContent = currentPhase;

@@ -741,10 +741,43 @@ a {
 }
 
 .records-trigger:not(:disabled) span {
-  -webkit-text-decoration: line-through 3px var(--color-danger);
-          text-decoration: line-through 3px var(--color-danger);
-  text-underline-offset: 4px;
   transition: opacity 0.2s;
+}
+
+.records-trigger .records-redaction {
+  position: relative;
+  overflow: hidden;
+  width: 5.8em;
+  height: 1.35em;
+  color: transparent;
+  background: repeating-linear-gradient(1deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 4px), linear-gradient(2deg, #111 0 28%, #050505 31% 63%, #181918 67% 100%);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.14);
+  clip-path: polygon(1% 12%, 8% 5%, 24% 9%, 39% 3%, 57% 8%, 75% 4%, 99% 11%, 97% 40%, 100% 68%, 96% 92%, 79% 96%, 61% 91%, 44% 97%, 27% 92%, 9% 97%, 0 86%, 3% 58%, 0 34%);
+  font-family: sans-serif;
+  letter-spacing: -0.08em;
+  transform: rotate(-0.8deg);
+}
+
+.records-trigger .records-redaction::before,
+.records-trigger .records-redaction::after {
+  content: "";
+  position: absolute;
+  left: -3%;
+  width: 106%;
+  height: 42%;
+  border-radius: 45% 54% 48% 52%;
+  background: rgba(0, 0, 0, 0.72);
+  transform: rotate(0.7deg);
+}
+
+.records-trigger .records-redaction::before {
+  top: 8%;
+}
+
+.records-trigger .records-redaction::after {
+  bottom: 5%;
+  opacity: 0.78;
+  transform: rotate(-1.2deg);
 }
 
 .records-trigger:not(:disabled):hover span {
@@ -1644,7 +1677,7 @@ a {
 
 .facility-diagrams {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1fr;
   align-items: start;
   gap: 28px;
 }
@@ -1777,117 +1810,34 @@ a {
 
 .evacuation-map {
   position: relative;
-  min-height: 390px;
   overflow: hidden;
   border: 8px solid #d4dfd5;
-  background-color: #f9fbf8;
-  background-image: linear-gradient(#edf2ed 1px, transparent 1px), linear-gradient(90deg, #edf2ed 1px, transparent 1px);
-  background-size: 24px 24px;
+  background: #f9fbf8;
 }
 
-.evacuation-room {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  color: #506355;
-  border: 2px solid #a9beaC;
-  background: rgba(237, 245, 238, 0.9);
-  font-size: 12px;
-}
-
-.evacuation-room--waiting {
-  inset: 7% 51% 53% 5%;
-}
-
-.evacuation-room--exam {
-  inset: 7% 5% 53% 53%;
-}
-
-.evacuation-room--treatment {
-  inset: 51% 5% 8% 62%;
-}
-
-.evacuation-room--reception {
-  inset: 62% 53% 8% 5%;
-}
-
-.evacuation-route {
-  position: absolute;
-  z-index: 2;
-  left: 36%;
-  bottom: 30%;
-  width: 43%;
-  height: 6px;
-  border-radius: 6px;
-  background: #79a884;
-  transform: rotate(-15deg);
-}
-
-.evacuation-route::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: -5px;
-  width: 13px;
-  height: 13px;
-  border-top: 4px solid #79a884;
-  border-right: 4px solid #79a884;
-  transform: rotate(45deg);
-}
-
-.evacuation-route i {
-  display: none;
-}
-
-.evacuation-exit {
-  position: absolute;
-  z-index: 3;
-  right: 4px;
-  bottom: 10px;
-  padding: 4px 8px;
-  color: #fff;
-  background: #5d986b;
-  font-size: 10px;
-}
-
-.stair-drawing {
-  position: absolute;
-  z-index: 3;
-  left: 42%;
-  bottom: 4%;
-  width: 64px;
-  height: 57px;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  padding: 4px;
-  border: 1px solid #cbd2cb;
-  background: #f3f4f1;
-}
-
-.stair-drawing i {
+.evacuation-map picture,
+.evacuation-map img {
   display: block;
-  height: 7px;
-  border-top: 1px solid #8f978f;
+  width: 100%;
 }
 
-.stair-drawing b {
-  position: absolute;
-  right: 5px;
-  top: 0;
-  color: #8a918b;
-  font-size: 17px;
+.evacuation-map img {
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: contain;
 }
 
 .underground-trigger {
   position: absolute;
   z-index: 5;
-  left: calc(42% - 7px);
-  bottom: calc(4% - 7px);
-  width: 78px;
-  height: 71px;
+  left: 52.5%;
+  top: 12.5%;
+  width: 7.5%;
+  height: 17%;
+  min-width: 44px;
+  min-height: 44px;
   border: 0;
-  border-radius: 5px;
+  border-radius: 4px;
   background: transparent;
 }
 
@@ -1896,6 +1846,7 @@ a {
 }
 
 .is-phase0 .underground-trigger {
+  visibility: hidden;
   pointer-events: none;
 }
 
@@ -1965,12 +1916,11 @@ a {
   .floor-row__rooms {
     padding: 12px;
   }
-  .evacuation-map {
-    min-height: 350px;
-  }
   .underground-trigger {
-    min-width: 78px;
-    min-height: 71px;
+    left: 51%;
+    top: 10%;
+    width: 11%;
+    height: 22%;
   }
 }
 .truth-page {

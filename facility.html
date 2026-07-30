@@ -114,16 +114,15 @@
           </div>
 
           <div class="evacuation-guide">
-            <div class="evacuation-guide__heading"><h3>避難経路図</h3><p>1F / EVACUATION ROUTE</p></div>
-            <div class="evacuation-map" aria-label="1階避難経路図">
-              <span class="evacuation-room evacuation-room--waiting">待合室</span>
-              <span class="evacuation-room evacuation-room--exam">診察室</span>
-              <span class="evacuation-room evacuation-room--treatment">処置室</span>
-              <span class="evacuation-room evacuation-room--reception">受付</span>
-              <span class="evacuation-route"><i></i><i></i><i></i></span>
-              <span class="evacuation-exit">非常口</span>
-              <span class="stair-drawing" aria-hidden="true"><i></i><i></i><i></i><i></i><b>↓</b></span>
-              <button class="underground-trigger" type="button" data-step2-trigger aria-label="地下へ続く階段を調べる" disabled></button>
+            <div class="evacuation-guide__heading"><h3>避難経路図</h3><p>1F・2F / EVACUATION ROUTE</p></div>
+            <div class="evacuation-map" aria-label="1階・2階避難経路図">
+              <picture>
+                <img src="assets/images/evacuation-route.png" alt="御影山診療所の通常避難経路図"
+                  data-evacuation-image data-normal-src="assets/images/evacuation-route.png"
+                  data-altered-src="assets/images/evacuation-route-altered.png">
+              </picture>
+              <button class="underground-trigger" type="button" data-step2-trigger
+                aria-label="地下へ続く階段を調べる" disabled></button>
             </div>
             <p class="evacuation-guide__note">災害時は職員の誘導に従い、落ち着いて避難してください。</p>
           </div>

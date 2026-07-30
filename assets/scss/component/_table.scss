@@ -6,7 +6,39 @@
 .table-wrap tr:last-child > * { border-bottom: 0; }
 .records-trigger { position: relative; width: 100%; min-height: 44px; color: var(--color-danger); border: 0; background: transparent; font-weight: 600; cursor: pointer; }
 .records-trigger span { display: inline-block; }
-.records-trigger:not(:disabled) span { text-decoration: line-through 3px var(--color-danger); text-underline-offset: 4px; transition: opacity .2s; }
+.records-trigger:not(:disabled) span { transition: opacity .2s; }
+.records-trigger .records-redaction {
+  position: relative;
+  overflow: hidden;
+  width: 5.8em;
+  height: 1.35em;
+  color: transparent;
+  background:
+    repeating-linear-gradient(1deg, rgba(255,255,255,.025) 0 1px, transparent 1px 4px),
+    linear-gradient(2deg, #111 0 28%, #050505 31% 63%, #181918 67% 100%);
+  box-shadow: 1px 1px 0 rgba(0,0,0,.14);
+  clip-path: polygon(1% 12%, 8% 5%, 24% 9%, 39% 3%, 57% 8%, 75% 4%, 99% 11%, 97% 40%, 100% 68%, 96% 92%, 79% 96%, 61% 91%, 44% 97%, 27% 92%, 9% 97%, 0 86%, 3% 58%, 0 34%);
+  font-family: sans-serif;
+  letter-spacing: -.08em;
+  transform: rotate(-.8deg);
+}
+.records-trigger .records-redaction::before,
+.records-trigger .records-redaction::after {
+  content: "";
+  position: absolute;
+  left: -3%;
+  width: 106%;
+  height: 42%;
+  border-radius: 45% 54% 48% 52%;
+  background: rgba(0,0,0,.72);
+  transform: rotate(.7deg);
+}
+.records-trigger .records-redaction::before { top: 8%; }
+.records-trigger .records-redaction::after {
+  bottom: 5%;
+  opacity: .78;
+  transform: rotate(-1.2deg);
+}
 .records-trigger:not(:disabled):hover span { opacity: .65; }
 .records-trigger:disabled { cursor: default; }
 @media (max-width: 520px) { .table-wrap th, .table-wrap td { height: 58px; padding: 8px 4px; font-size: 13px; } .records-trigger { font-size: 12px; } }

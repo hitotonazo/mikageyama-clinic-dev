@@ -41,14 +41,14 @@
   const initShare = () => {
     document.querySelector('[data-share-x]')?.addEventListener('click', () => {
       const text = [
-        '御影山診療所のサイトで、ある記録にたどり着きました。',
-        'あなたもサイトを調査してみてください。',
+        '彼らの存在がいずれ明るみになった時、',
+        'この選択の結果が出るだろう。',
         '',
         '#おかしなサイト',
-        `元の投稿：${SHARE_CONFIG.originalPostUrl}`,
-        `サイト：${SHARE_CONFIG.siteUrl}`,
+        '',
+        SHARE_CONFIG.originalPostUrl,
       ].join('\n');
-      const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+      const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(SHARE_CONFIG.siteUrl)}`;
       const shareWindow = window.open(intentUrl, '_blank', 'noopener,noreferrer');
       if (shareWindow) shareWindow.opener = null;
     });
