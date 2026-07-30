@@ -2,9 +2,7 @@
   'use strict';
 
   const SHARE_CONFIG = {
-    // TODO: 公開前に元の告知投稿URLへ差し替えてください。
-    originalPostUrl: 'REPLACE_WITH_ORIGINAL_POST_URL',
-    siteUrl: window.location.origin + window.location.pathname.replace(/truth\.html$/, ''),
+    profileUrl: 'https://x.com/ARG_ObserverX',
   };
 
   let heroRestored = false;
@@ -45,10 +43,9 @@
         'この選択の結果が出るだろう。',
         '',
         '#おかしなサイト',
-        '',
-        SHARE_CONFIG.originalPostUrl,
+        SHARE_CONFIG.profileUrl,
       ].join('\n');
-      const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(SHARE_CONFIG.siteUrl)}`;
+      const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
       const shareWindow = window.open(intentUrl, '_blank', 'noopener,noreferrer');
       if (shareWindow) shareWindow.opener = null;
     });

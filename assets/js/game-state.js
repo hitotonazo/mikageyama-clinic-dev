@@ -60,11 +60,16 @@
       step2.setAttribute('aria-hidden', currentPhase === 'phase0' ? 'true' : 'false');
     }
     if (evacuationImage) {
-      const altered = level >= 1;
-      evacuationImage.src = altered ? evacuationImage.dataset.alteredSrc : evacuationImage.dataset.normalSrc;
-      evacuationImage.alt = altered
-        ? '院長室裏に地下へ続く階段が現れた避難経路図'
-        : '御影山診療所の通常避難経路図';
+      if (level >= 2) {
+        evacuationImage.src = evacuationImage.dataset.phase2Src;
+        evacuationImage.alt = '地下区画の発見後に更新された避難経路図';
+      } else if (level === 1) {
+        evacuationImage.src = evacuationImage.dataset.alteredSrc;
+        evacuationImage.alt = '院長室裏に地下へ続く階段が現れた避難経路図';
+      } else {
+        evacuationImage.src = evacuationImage.dataset.normalSrc;
+        evacuationImage.alt = '御影山診療所の通常避難経路図';
+      }
     }
     document.querySelectorAll('[data-current-phase]').forEach((element) => {
       element.textContent = currentPhase;
